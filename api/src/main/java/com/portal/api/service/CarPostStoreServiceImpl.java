@@ -10,8 +10,11 @@ import java.util.List;
 @Service
 public class CarPostStoreServiceImpl implements CarPostStoreService{
 
-    @Autowired
-    private CarPostStoreClient carPostStoreClient;
+    private final CarPostStoreClient carPostStoreClient;
+
+    public CarPostStoreServiceImpl(CarPostStoreClient carPostStoreClient) {
+        this.carPostStoreClient = carPostStoreClient;
+    }
 
     @Override
     public List<CarPostDto> getCarForSales() {
