@@ -1,8 +1,8 @@
 package com.portal.api.service;
 
 import com.portal.api.client.CarPostStoreClient;
-import com.portal.api.dto.CarPostDto;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.portal.api.dto.CarPostDTO;
+import com.portal.api.dto.OwnerPostDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,17 +17,22 @@ public class CarPostStoreServiceImpl implements CarPostStoreService{
     }
 
     @Override
-    public List<CarPostDto> getCarForSales() {
+    public List<CarPostDTO> getCarForSales() {
         return carPostStoreClient.carForSaleClient();
     }
 
     @Override
-    public void changeCarForSale(CarPostDto carPost, String id) {
+    public void changeCarForSale(CarPostDTO carPost, String id) {
         carPostStoreClient.changeCarForSaleClient(carPost, id);
     }
 
     @Override
     public void removeCarForSale(String id) {
         carPostStoreClient.deleteCarForSaleClient(id);
+    }
+
+    @Override
+    public void ownerPostsClient(OwnerPostDTO newUser) {
+        //tratamento futuro
     }
 }

@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 @JsonInclude
-public class OwnerPostDto {
+public class OwnerPostDTO {
 
     private String name;
     private String type;

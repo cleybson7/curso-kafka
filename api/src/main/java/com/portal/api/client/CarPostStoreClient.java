@@ -1,6 +1,7 @@
 package com.portal.api.client;
 
-import com.portal.api.dto.CarPostDto;
+import com.portal.api.dto.CarPostDTO;
+import com.portal.api.dto.OwnerPostDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -19,13 +20,17 @@ public class CarPostStoreClient {
     @Autowired
     RestTemplate restTemplate;
 
-    public List<CarPostDto> carForSaleClient(){//14:25
-        ResponseEntity<CarPostDto[]> responseEntity = restTemplate.getForEntity(POSTS_STORE_SERVICE_URI+"/cars",CarPostDto[].class);
+    public List<CarPostDTO> carForSaleClient(){//14:25
+        ResponseEntity<CarPostDTO[]> responseEntity = restTemplate.getForEntity(POSTS_STORE_SERVICE_URI+"/cars", CarPostDTO[].class);
         return Arrays.asList(Objects.requireNonNull(responseEntity.getBody()));
     }
 
-    public void changeCarForSaleClient(CarPostDto carPostDTO, String id){
-        restTemplate.put(POSTS_STORE_SERVICE_URI+"/car/"+id,carPostDTO,CarPostDto.class);
+    public void ownerPostsClient(OwnerPostDTO newUser){
+        restTemplate.postForEntity(USER_STORE_SERVICE_URI, newUser, OwnerPostDTO.class);
+    }
+
+    public void changeCarForSaleClient(CarPostDTO carPostDTO, String id){
+        restTemplate.put(POSTS_STORE_SERVICE_URI+"/car/"+id,carPostDTO, CarPostDTO.class);
     }
 
     public void deleteCarForSaleClient(String id){

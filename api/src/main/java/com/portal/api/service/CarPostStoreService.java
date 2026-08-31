@@ -1,13 +1,16 @@
 package com.portal.api.service;
 
-import com.portal.api.dto.CarPostDto;
+import com.portal.api.dto.CarPostDTO;
+import com.portal.api.dto.OwnerPostDTO;
 
 import java.util.List;
 
 public interface CarPostStoreService {
-    List<CarPostDto> getCarForSales();
+    List<CarPostDTO> getCarForSales();
 
-    void changeCarForSale(CarPostDto carPost, String id);
+    public void ownerPostsClient(OwnerPostDTO newUser);
+
+    void changeCarForSale(CarPostDTO carPost, String id);
 
     void removeCarForSale(String id);
 }

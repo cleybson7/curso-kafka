@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 @JsonInclude
-public class CarPostDto {
+public class CarPostDTO {
 
     private String model;
     private String brand;
